@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Navbar, Nav, Button, Row, Col, Card, Badge, Carousel } from 'react-bootstrap';
 import { Star, Gift, Truck, Award, ChevronRight, Heart, Users, ShoppingBag } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,268 +46,7 @@ const Home = () => {
 
   return (
     <div className="w-100" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-      {/* Custom Styles */}
-      <style jsx>{`
-        /* Import Bootstrap CSS */
-        @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
-        
-        .hero-gradient {
-          background: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #2d2d2d 50%, #1a1a1a 75%, #000000 100%);
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .hero-gradient::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: radial-gradient(circle at 30% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 60%);
-        }
-        
-        .hero-gradient::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: radial-gradient(circle at 70% 30%, rgba(255, 165, 0, 0.1) 0%, transparent 50%);
-        }
-        
-        .yellow-accent {
-          color: #FFD700 !important;
-        }
-        
-        .bg-yellow {
-          background-color: #FFD700 !important;
-        }
-        
-        .btn-yellow {
-          background: linear-gradient(45deg, #FFD700, #FFA500) !important;
-          border: none !important;
-          color: #000 !important;
-          font-weight: bold !important;
-          transition: all 0.3s ease !important;
-          box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3) !important;
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .btn-yellow:hover {
-          transform: translateY(-2px) !important;
-          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5) !important;
-          color: #000 !important;
-          background: linear-gradient(45deg, #FFA500, #FFD700) !important;
-        }
-        
-        .btn-yellow:active {
-          transform: translateY(0px) !important;
-        }
-        
-        .btn-yellow:focus {
-          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5) !important;
-          color: #000 !important;
-        }
-        
-        .card-hover {
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-          border: 2px solid transparent !important;
-          transform: translateY(0) !important;
-        }
-        
-        .card-hover:hover {
-          transform: translateY(-10px) !important;
-          border-color: #FFD700 !important;
-          box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2) !important;
-        }
-        
-        .floating-animation {
-          animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          25% { transform: translateY(-10px) rotate(2deg); }
-          50% { transform: translateY(-20px) rotate(0deg); }
-          75% { transform: translateY(-10px) rotate(-2deg); }
-        }
-        
-        .pulse-glow {
-          animation: pulse-glow 2s infinite;
-        }
-        
-        @keyframes pulse-glow {
-          0%, 100% { 
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4) !important; 
-          }
-          50% { 
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.8) !important; 
-          }
-        }
-        
-        .navbar-scrolled {
-          background: rgba(0, 0, 0, 0.95) !important;
-          backdrop-filter: blur(15px) !important;
-          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3) !important;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        }
-        
-        .navbar-transparent {
-          background: rgb(0 0 0) !important;
-          backdrop-filter: blur(5px) !important;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        }
-        
-        .stats-counter {
-          font-size: 2.5rem !important;
-          font-weight: bold !important;
-          background: linear-gradient(45deg, #FFD700, #FFA500) !important;
-          -webkit-background-clip: text !important;
-          -webkit-text-fill-color: transparent !important;
-          background-clip: text !important;
-          text-shadow: 0 0 30px rgba(255, 215, 0, 0.5) !important;
-        }
-        
-        .nav-link-custom {
-          color: white !important;
-          font-weight: 500 !important;
-          padding: 0.5rem 1rem !important;
-          margin: 0 0.25rem !important;
-          border-radius: 0.5rem !important;
-          transition: all 0.3s ease !important;
-          position: relative !important;
-          text-decoration: none !important;
-          cursor: pointer !important;
-        }
-        
-        .nav-link-custom:hover {
-          color: #FFD700 !important;
-          background: rgba(255, 215, 0, 0.1) !important;
-          transform: translateY(-1px) !important;
-          text-decoration: none !important;
-        }
-        
-        .nav-link-custom::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          width: 0;
-          height: 2px;
-          background: #FFD700;
-          transition: all 0.3s ease;
-          transform: translateX(-50%);
-        }
-        
-        .nav-link-custom:hover::after {
-          width: 80%;
-        }
-        
-        .feature-card {
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-          cursor: pointer;
-        }
-        
-        .feature-card:hover {
-          transform: translateY(-5px) scale(1.02) !important;
-          background: rgba(255, 255, 255, 0.05) !important;
-        }
-        
-        .testimonial-card {
-          transition: all 0.5s ease !important;
-          background: rgba(255, 255, 255, 0.05) !important;
-          backdrop-filter: blur(10px) !important;
-          border: 1px solid rgba(255, 215, 0, 0.2) !important;
-        }
-        
-        .testimonial-card:hover {
-          transform: translateY(-5px) !important;
-          border-color: rgba(255, 215, 0, 0.5) !important;
-        }
-        
-        .section-reveal {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: all 0.6s ease;
-        }
-        
-        .section-reveal.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        
-        /* Custom navbar brand hover */
-        .navbar-brand {
-          transition: all 0.3s ease !important;
-          cursor: pointer !important;
-        }
-        
-        .navbar-brand:hover {
-          transform: scale(1.05) !important;
-          text-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
-        }
-        
-        /* Mobile navbar improvements */
-        .navbar-toggler {
-          border: none !important;
-          padding: 0.25rem 0.5rem !important;
-        }
-        
-        .navbar-toggler:focus {
-          box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25) !important;
-        }
-        
-        .navbar-nav .nav-link {
-          transition: all 0.3s ease !important;
-        }
-        
-        /* Carousel improvements */
-        .carousel-item {
-          transition: transform 0.6s ease-in-out !important;
-        }
-        
-        .carousel-control-prev,
-        .carousel-control-next {
-          width: 5% !important;
-          opacity: 0.8 !important;
-        }
-        
-        .carousel-control-prev:hover,
-        .carousel-control-next:hover {
-          opacity: 1 !important;
-        }
-        
-        .carousel-indicators button {
-          background-color: #FFD700 !important;
-          opacity: 0.5 !important;
-        }
-        
-        .carousel-indicators button.active {
-          opacity: 1 !important;
-        }
-        
-        /* Smooth scrolling for the whole page */
-        html {
-          scroll-behavior: smooth !important;
-        }
-        
-        /* Loading animation for images */
-        .loading-placeholder {
-          background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-          background-size: 200% 100%;
-          animation: loading 1.5s infinite;
-        }
-        
-        @keyframes loading {
-          0% { background-position: 200% 0; }
-          100% { background-position: -200% 0; }
-        }
-      `}</style>
-
-      {/* Navigation */}
+      
       <Navbar 
         expand="lg" 
         fixed="top"
@@ -347,7 +89,7 @@ const Home = () => {
               >
                 Contact
               </Nav.Link>
-              <Button className="btn-yellow ms-3 px-4 py-2">
+              <Button className="btn-yellow ms-3 px-4 py-2" onClick={()=>navigate('/thank-you')}>
                 Order Now
               </Button>
             </Nav>
