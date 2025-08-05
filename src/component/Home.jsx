@@ -18,10 +18,10 @@ const Home = () => {
   }, []);
 
   const hamperCategories = [
-    { name: 'Luxury Gourmet', price: '$299', image: '🍾', description: 'Premium wines & artisanal treats' },
-    { name: 'Corporate Elite', price: '$199', image: '💼', description: 'Perfect for business gifting' },
-    { name: 'Holiday Special', price: '$149', image: '🎄', description: 'Festive seasonal delights' },
-    { name: 'Wellness Collection', price: '$179', image: '🧘', description: 'Organic & health-focused items' }
+    { name: 'Luxury Gourmet', price: '₹499', image: '🍾', description: 'Premium wines & artisanal treats' },
+    { name: 'Corporate Elite', price: '₹399', image: '💼', description: 'Perfect for business gifting' },
+    { name: 'Holiday Special', price: '₹249', image: '🎄', description: 'Festive seasonal delights' },
+    { name: 'Wellness Collection', price: '₹379', image: '🧘', description: 'Organic & health-focused items' }
   ];
 
   const testimonials = [
@@ -175,7 +175,7 @@ const Home = () => {
               <div className="p-4 feature-card rounded">
                 <Truck size={48} className="yellow-accent mb-3" />
                 <h5 className="fw-bold">Free Delivery</h5>
-                <p className="text-white-50 mb-0">Complimentary delivery on orders over $100</p>
+                <p className="text-white-50 mb-0">Complimentary delivery on orders over ₹100</p>
               </div>
             </Col>
             <Col md={6} lg={3}>
